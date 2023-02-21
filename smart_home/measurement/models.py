@@ -4,12 +4,23 @@ from django.db import models
 
 
 class Sensor(models.Model):
-    title = models.CharField(max_length=50, verbose_name='Название')
+    class Meta:
+        verbose_name = 'Новый датчик'
+        verbose_name_plural = 'Датчики'
+
+    title = models.CharField(max_length=50, verbose_name='Название', null=True)
     description = models.CharField(max_length=300, verbose_name='Описание')
+
+    def __str__(self):
+        return self.title
 
 
 class Measurement(models.Model):
-    id_sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurements', verbose_name='Номер датчика')
-    temperature = models.FloatField(verbose_name='Температура')
-    date = models.DateField(verbose_name='Дата')
+    class Meta:
+        verbose_name = 'Новые замеры'
+        verbose_name_plural = 'Измерения'
+        ordering = ['id_sensor', 'date']
 
+    id_sensor = models.ForeignKey(Sensor, on_delete=models.CASCADE, related_name='measurements', verbose_name='Модель датчика')
+    temperature = models.FloatField(verbose_name='Температура')
+    date = models.DateField(verbose_name='Дата измерения')
