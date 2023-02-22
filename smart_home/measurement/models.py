@@ -8,7 +8,7 @@ class Sensor(models.Model):
         verbose_name = 'Новый датчик'
         verbose_name_plural = 'Датчики'
 
-    title = models.CharField(max_length=50, verbose_name='Название', null=True)
+    title = models.CharField(max_length=50, verbose_name='Название', null=False)
     description = models.CharField(max_length=300, verbose_name='Описание')
 
     def __str__(self):

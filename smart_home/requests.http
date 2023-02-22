@@ -13,7 +13,7 @@ POST {{baseUrl}}/sensors/
 Content-Type: application/json
 
 {
-  "name": "ESP32",
+  "name": "ESP34",
   "description": "Датчик на кухне за холодильником"
 }
 

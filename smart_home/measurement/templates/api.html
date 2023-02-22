@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашняя страница</title>
+</head>
+<body>
+    <h1>Выберите раздел</h1>
+    {% for object in pages %}
+        <link href="{{ object.title }}" rel="stylesheet">
+        <a href="{{ object.title.lower }}">{{ object.title }}</a>
+        <a>: {{object.description}}</a>
+        <br>
+        
+    {% endfor %}
+</body>
+</html>
