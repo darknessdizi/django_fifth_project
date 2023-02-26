@@ -24,7 +24,7 @@ PATCH {{baseUrl}}/sensors/2/
 Content-Type: application/json
 
 {
-  "description": "Перенес датчик на fdhfdhfd"
+  "description": "Перенес датчик на окно"
 }
 
 ###
@@ -35,7 +35,8 @@ Content-Type: application/json
 
 {
   "sensor": 1,
-  "temperature": 36.6
+  "temperature": 39.6,
+  "image_model": "D:\\Фото\\IMG_20211231_091424.jpg"
 }
 
 ###
