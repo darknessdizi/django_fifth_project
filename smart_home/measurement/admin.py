@@ -9,8 +9,8 @@ class SensorAdmin(admin.ModelAdmin):
 
 @admin.register(Measurement)
 class MeasurementAdmin(admin.ModelAdmin):
-    list_display = ['id_sensor', 'id_sensor_description', 'temperature', 'date']
+    list_display = ['sensor', 'sensor_description', 'temperature', 'date']
 
-    @admin.display(ordering='id_sensor__description')
-    def id_sensor_description(self, obj):
-        return obj.id_sensor.description
+    @admin.display(ordering='sensor__description')
+    def sensor_description(self, obj):
+        return obj.sensor.description

@@ -40,7 +40,11 @@ class MeasurementView(ListAPIView):
 
         sensor = Sensor.objects.get(id=request.data.get('sensor'))
         temperature = request.data.get('temperature')
-        Measurement(id_sensor=sensor, temperature=temperature).save()
+        if request.data.get('image_model'):
+            image_model = request.data.get('image_model')
+            Measurement(sensor=sensor, temperature=temperature, image_model=image_model).save()
+        else:
+            Measurement(sensor=sensor, temperature=temperature).save()
         return Response({'status': 'Измерения добавлены'})
 
 
@@ -76,3 +80,8 @@ def start_api_view(request):
     ]
     context = {'pages': list_commands} 
     return render(request, 'api.html', context) 
+
+from django.http import HttpResponse
+def images(request):
+    data = Measurement.objects.get(id=1, image_model='image_model')
+    return HttpResponse(data)
